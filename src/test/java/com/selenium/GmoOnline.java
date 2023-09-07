@@ -21,8 +21,14 @@ public class GmoOnline {
 		
 		String UnitPriceOfSunGlasses1 = driver.findElement(By.xpath("//table[@cellpadding='4' and @border='1']/tbody/tr[2]/td[4]")).getText();
 		System.out.println("UnitPriceOfSunGlasses using Relative Xpath:"+UnitPriceOfSunGlasses1);
+		float UnitPrice = Float.parseFloat(UnitPriceOfSunGlasses1.substring(2).trim());
+		float CalculatedTotlaPriceInFloatFormat = UnitPrice*4;
+		System.out.println("CalculatedTotlaPriceInFloatFormat:"+CalculatedTotlaPriceInFloatFormat);
 		
-		//table[@cellpadding='4' and @border='1']/tbody/tr[2]/td[4]
+		String TotalPriceFromApplication = driver.findElement(By.xpath("//table[@cellpadding='4' and @border='1']/tbody/tr[2]/td[5]")).getText();
+		System.out.println("TotalPriceFromApplication:"+TotalPriceFromApplication);
+		float TotalPriceFromApplicationInFloatFormat = Float.parseFloat(TotalPriceFromApplication.substring(2).trim());
+		System.out.println("TotalPriceFromApplicationInFloatFormat:"+TotalPriceFromApplicationInFloatFormat);
 	}
 
 }
