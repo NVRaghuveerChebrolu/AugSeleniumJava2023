@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Suite">
-  <test name="Test">
-    <classes>
-      <class name="com.selenium.TestNgAnnotations"/>
-    </classes>
-  </test> <!-- Test -->
+	<groups>
+		<run>
+			<include name="sanity"></include>
+		</run>
+	</groups>
+	<test name="Test">
+		<classes>
+			<class name="com.selenium.TestNgAnnotations">
+				<!-- <methods> <include name="testCase3"></include>
+				 <include name="TestCase6"></include> 
+					</methods> -->
+			</class>
+		</classes>
+	</test> <!-- Test -->
 </suite> <!-- Suite -->

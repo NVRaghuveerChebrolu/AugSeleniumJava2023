@@ -11,13 +11,13 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 
 public class TestNgAnnotations {
-  @Test
+  @Test(priority=-6)
   public void TestCase1() {
 	  System.out.println("inside TestCase1");
   }
   
   
-  @Test
+  @Test(priority=0,groups = {"sanity"})
   public void TestCase2() {
 	  System.out.println("inside TestCase2");
   }
@@ -27,12 +27,12 @@ public class TestNgAnnotations {
 	  System.out.println("inside testCase3");
   }
   
-  @Test
+  @Test(priority=-32)
   public void tEstcase4() {
 	  System.out.println("inside tEstcase4");
   }
   
-  @Test
+  @Test(priority=-4,invocationCount=7)
   public void TestCase5() {
 	  System.out.println("inside TestCase5");
   }
