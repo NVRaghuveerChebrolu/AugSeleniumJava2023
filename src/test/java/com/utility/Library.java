@@ -24,7 +24,7 @@ public class Library {
 			objProperties = new Properties();
 			objProperties.load(ObjFileInput);
 			System.out.println("browser:" + objProperties.getProperty("browser"));
-			System.out.println("GmoOnlineURL" + objProperties.getProperty("GmoOnlineURL"));
+			//System.out.println("GmoOnlineURL" + objProperties.getProperty("GmoOnlineURL"));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
