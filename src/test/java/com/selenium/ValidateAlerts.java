@@ -10,8 +10,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
 import java.io.IOException;
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
@@ -35,9 +40,54 @@ public class ValidateAlerts extends Library{
 	  //driver.findElement(By.id("alertButton")).click();
 	  AlertsPOM objAlertspom = new AlertsPOM(driver);
 	  objAlertspom.NormalAlert.click();
+	  Alert objAlert = driver.switchTo().alert();
+	  String  title = objAlert.getText();
+	  Assert.assertEquals(title, objProperties.getProperty("NormalAlertTitle"));
+	  objAlert.accept();
+  }
+  
+  @Test(priority=0)
+  public void ValidateTimerAlert() {
+	  System.out.println("inside ValidateTimerAlert");
+	  AlertsPOM objAlertspom = new AlertsPOM(driver);
+	  objAlertspom.TimerAlert.click();
+	  
+	  //Explicit Wait : Applicable for one webElement for a specified time duration based on the condition
+	  WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(30));
+	  wait.until(ExpectedConditions.alertIsPresent());
+	  
+	  Alert objAlert = driver.switchTo().alert();
+	  String  title = objAlert.getText();
+	  Assert.assertEquals(title, objProperties.getProperty("TimerAlertTitle"));
+	  objAlert.accept();
 	  
   }
   
+  @Test(priority=1)
+  public void ValidateConfirmBoxAlert() {
+	  System.out.println("inside ValidateConfirmBoxAlert");
+	  AlertsPOM objAlertsPOM = new AlertsPOM(driver);
+	  objAlertsPOM.ConfirmALert.click();
+	  Alert objAlert = driver.switchTo().alert();
+	  Assert.assertEquals(objAlert.getText(), objProperties.getProperty("ConfirmBoxAlertTitle"));
+	  objAlert.dismiss();
+	  String ConfirmAlertMessage = objAlertsPOM.ConfirmResult.getText();
+	  Assert.assertEquals(ConfirmAlertMessage, objProperties.getProperty("ConfimrBoxAlertMessage"));
+  }
+  
+  @Test(priority=2)
+  public void ValidatePromptBoxAlert() {
+	  System.out.println("inside ValidatePromptBoxAlert");
+	  AlertsPOM objAlertsPOM = new AlertsPOM(driver);
+	  objAlertsPOM.PromptAlert.click();
+	  Alert objAlert = driver.switchTo().alert();
+	  Assert.assertEquals(objAlert.getText(),objProperties.getProperty("PromptAlertMessage"));
+	  objAlert.sendKeys(objProperties.getProperty("PromptAlertText"));
+	  objAlert.accept();
+	  String PromptBoxMessage = objAlertsPOM.promptResult.getText();
+	  Assert.assertEquals(PromptBoxMessage, objProperties.getProperty("PromptAlertResult"));
+
+  }
   
   @BeforeMethod
   public void beforeMethod() {
