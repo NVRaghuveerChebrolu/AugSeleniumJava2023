@@ -1,6 +1,7 @@
 package com.selenium;
 
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.POM.AlertsPOM;
 import com.utility.Library;
@@ -63,16 +64,19 @@ public class ValidateAlerts extends Library{
 	  
   }
   
-  @Test(priority=1)
+  @Test(priority=1,dependsOnMethods= {"LaunchToolsQAApplicationAlertsPage"})
   public void ValidateConfirmBoxAlert() {
 	  System.out.println("inside ValidateConfirmBoxAlert");
 	  AlertsPOM objAlertsPOM = new AlertsPOM(driver);
 	  objAlertsPOM.ConfirmALert.click();
 	  Alert objAlert = driver.switchTo().alert();
-	  Assert.assertEquals(objAlert.getText(), objProperties.getProperty("ConfirmBoxAlertTitle"));
+	  SoftAssert objSA = new SoftAssert();
+	  //Assert.assertEquals(objAlert.getText(), objProperties.getProperty("ConfirmBoxAlertTitle"));
+	  objSA.assertEquals(objAlert.getText(), objProperties.getProperty("ConfirmBoxAlertTitle"));
 	  objAlert.dismiss();
 	  String ConfirmAlertMessage = objAlertsPOM.ConfirmResult.getText();
 	  Assert.assertEquals(ConfirmAlertMessage, objProperties.getProperty("ConfimrBoxAlertMessage"));
+	  objSA.assertAll();
   }
   
   @Test(priority=2)
