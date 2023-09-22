@@ -53,5 +53,9 @@ public class Library {
 		//implicit wait : Global waiting mechanism which is applicable for all WebElements
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	}
+	
+	public void PageLoadTimeOut(long seconds) {
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(seconds));
+	}
 
 }

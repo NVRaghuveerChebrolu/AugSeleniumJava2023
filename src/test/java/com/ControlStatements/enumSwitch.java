@@ -36,5 +36,25 @@ public class enumSwitch {
 				break;
 			}
 		}
+		//for(int IndividualNumber:intarr) {
+			//switch(IndividualNumber) {
+			switch(intarr[2]) {
+			case 3:
+				System.out.println("inside case 3");
+				break;
+			case 4:
+				System.out.println("inside case 4");
+				break;
+			case 5:
+				System.out.println("inside case 5");
+				break;
+			case 6:
+				System.out.println("inside case 6");
+				break;	
+			default:
+				System.out.println("inside default block");
+				break;
+			}
+		//}
 	}
 }
