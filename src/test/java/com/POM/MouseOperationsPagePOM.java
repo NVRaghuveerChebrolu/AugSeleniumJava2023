@@ -31,6 +31,12 @@ public class MouseOperationsPagePOM {
 	@FindBy(xpath="//span[contains(text(),'the block')]/preceding-sibling::div")
 	public WebElement DoubleClickBox;
 	
+	@FindBy(id="draggable")
+	public WebElement DragMeToMyTarget;
+	
+	@FindBy(id="droppable")
+	public WebElement DropHere;
+	
 	public void RightClickOnRightClickMeButton() {
 		objActions = new Actions(driver);
 		objActions.contextClick(RightClickMeButton).build().perform();
