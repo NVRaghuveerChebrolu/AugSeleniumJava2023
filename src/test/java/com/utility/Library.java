@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -68,6 +69,11 @@ public class Library {
 		String dateName = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 		File Destination = new File(System.getProperty("user.dir")+"//Screenshots//"+dateName+".PNG");
 		FileUtils.copyFile(Source, Destination);
+	}
+	
+	public void ScrollDownByPixles(int PixelValue) {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,"+PixelValue+")");
 	}
 
 }
