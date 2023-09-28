@@ -37,6 +37,13 @@ public class MouseOperationsPagePOM {
 	@FindBy(id="droppable")
 	public WebElement DropHere;
 	
+	@FindBy(css="div#column-a.column")
+	public WebElement DragsrcofA;
+	
+	
+	@FindBy(css="div#column-b.column")
+	public WebElement DropsrofB;
+	
 	public void RightClickOnRightClickMeButton() {
 		objActions = new Actions(driver);
 		objActions.contextClick(RightClickMeButton).build().perform();
