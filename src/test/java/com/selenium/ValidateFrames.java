@@ -86,6 +86,7 @@ public class ValidateFrames extends Library{
   public void beforeSuite() throws IOException {
 	  System.out.println("inside beforeSuite");
 	  ReadPropetiesFile();
+	  System.out.println("TestNG Annotation added and reading property files");
   }
 
   @AfterSuite
