@@ -38,7 +38,7 @@ public class ValidateMouseOperations extends Library {
 		Assert.assertEquals(objAlert.getText(), objProperties.getProperty("mouseOpeartionRightclick_Edit"));
 		TakeScreenShot();
 		objAlert.accept();
-
+		
 	}
 
 	@Test(priority = 2)
@@ -110,6 +110,7 @@ public class ValidateMouseOperations extends Library {
 		Actions objActions = new Actions(driver);
 
 		objActions.dragAndDrop(objMOPOM.DragsrcofA, objMOPOM.DropsrofB).build().perform();
+		System.out.println("this is a drag n drop");
 
 	}
 
