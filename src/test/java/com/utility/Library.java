@@ -20,6 +20,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.ITestResult;
 
+import com.POM.GoibiboPOM;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -32,7 +33,7 @@ public class Library {
 	public static ExtentHtmlReporter ExtHtmlReptr;
 	public static ExtentReports ExtReports;
 	public static ExtentTest ExtTest;
-	
+	GoibiboPOM objgoibiboPOM =new GoibiboPOM(driver);
 	/*
 	 * ExtentHtmlReporter : responsible for look and feel of the report ,we can
 	 * specify the report name , document title , theme of the report
@@ -141,6 +142,41 @@ public class Library {
 	public void ScrollDownByPixles(int PixelValue) {
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,"+PixelValue+")");
+	}
+	
+	public void SelectRespectiveTripType(String tripType) {
+		// TODO Auto-generated method stub
+		
+		if(tripType.equalsIgnoreCase("oneway")) {
+			objgoibiboPOM.TravelType_OneWay.click();
+		}else if(tripType.equalsIgnoreCase("roundtrip")) {
+			objgoibiboPOM.TravelType_RoundTrip.click();
+		}else if(tripType.equalsIgnoreCase("multicity")) {
+			objgoibiboPOM.TravelType_RoundTrip.click();
+		}
+	}	
+	
+	public void SelectRespectiveFareType(String fareType) {
+		// TODO Auto-generated method stub
+		switch(fareType.toLowerCase()) {
+		case "regular":
+			objgoibiboPOM.FareType_Regular.click();
+			break;
+		case "armedforces":
+			objgoibiboPOM.FareType_ArmedForces.click();
+			break;
+		case "seniorcitizen":
+			objgoibiboPOM.FareType_SenorCitizen.click();
+			break;
+		case "student":
+			objgoibiboPOM.FareType_Student.click();
+			break;
+		case "doctors&nurses":
+			objgoibiboPOM.Fare_DoctorsAndNurses.click();
+			break;
+		default:
+			System.out.println("please provide A proper Fare Type:"+fareType + " provided is invalid");
+		}
 	}
 
 }
