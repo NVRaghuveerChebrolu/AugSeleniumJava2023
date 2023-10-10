@@ -44,7 +44,16 @@ public class GoibiboPOM {
 	@FindBy(xpath="//span[text()='From']/following-sibling::p")
 	public WebElement From_EnterCityOrAirport;
 	
+	@FindBy(xpath="//input[@type='text']")
+	public WebElement TextBox;
+	
 	@FindBy(xpath="//span[text()='To']/following-sibling::p")
 	public WebElement To_EnterCityOrAirport;
+	
+	@FindBy(xpath="//p[@class='sc-jlwm9r-1 ewETUe']")
+	public WebElement closeIconGoibiboAdd;
+	
+	@FindBy(xpath="//a[text()='Done']")
+	public WebElement DoneButton;
 
 }

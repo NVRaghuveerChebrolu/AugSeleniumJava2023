@@ -23,6 +23,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.v113.input.Input.DispatchKeyEventType;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -36,6 +37,9 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterSuite;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 
 public class ValidateGoibiboApp extends Library {
 
@@ -50,25 +54,41 @@ public class ValidateGoibiboApp extends Library {
 	}
 
 	
-	@Parameters({ "FareType", "TripType" })
-	@Test(priority=2,dataProvider= "SourceAndDestination")
-	public void ValidateE2EforFlights(String FareType,String TripType,String Source, String Destination) {
+	@Parameters({ "FareType", "TripType" , "Source" , "Destination"})
+	@Test(priority=2)
+	public void ValidateE2EforFlights(String FareType,String TripType,String Source, String Destination) throws AWTException, InterruptedException {
+		GoibiboPOM objgoibibo_POM = new GoibiboPOM(driver);
+		objgoibibo_POM.LoginPopUpClose.click();
 		SelectRespectiveTripType(TripType);
 		SelectRespectiveFareType(FareType);
-		GoibiboPOM objgoibibo_POM = new GoibiboPOM(driver);
-		objgoibibo_POM.From_EnterCityOrAirport.sendKeys(Source);
-		objgoibibo_POM.To_EnterCityOrAirport.sendKeys(Destination);
+		objgoibibo_POM.DoneButton.click();
+		boolean AddIcon = objgoibibo_POM.closeIconGoibiboAdd.isDisplayed();
+		if(AddIcon=true) {
+		objgoibibo_POM.closeIconGoibiboAdd.click();
+		}
+		objgoibibo_POM.From_EnterCityOrAirport.click();
+		objgoibibo_POM.TextBox.sendKeys(Source);
+		Robot obRobot = new Robot();
+		Thread.sleep(2000);
+		obRobot.keyPress(KeyEvent.VK_ENTER);
+		Thread.sleep(2000);
+		obRobot.keyRelease(KeyEvent.VK_ENTER);
+		Thread.sleep(4000);
+		objgoibibo_POM.TextBox.sendKeys(Destination);
+		Thread.sleep(2000);
+		obRobot.keyPress(KeyEvent.VK_ENTER);
+		Thread.sleep(2000);
+		obRobot.keyRelease(KeyEvent.VK_ENTER);
+		
 	}
 
-	@DataProvider
-	public Object[][] SourceAndDestination() {
-		return new Object[][] {
-				
-				new Object[] { "BLR", "DEL",},
-				new Object[] { "MAA", "ARN", },
-			
-			};
-	}
+//	@DataProvider
+//	public Object[][] SourceAndDestination() {
+//		return new Object[][] {
+//				new Object[] { "BLR", "DEL",},
+//				new Object[] { "MAA", "ARN", },
+//			};
+//	}
 
 	@BeforeMethod
 	public void beforeMethod() {

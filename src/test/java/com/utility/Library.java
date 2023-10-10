@@ -33,7 +33,7 @@ public class Library {
 	public static ExtentHtmlReporter ExtHtmlReptr;
 	public static ExtentReports ExtReports;
 	public static ExtentTest ExtTest;
-	GoibiboPOM objgoibiboPOM =new GoibiboPOM(driver);
+	
 	/*
 	 * ExtentHtmlReporter : responsible for look and feel of the report ,we can
 	 * specify the report name , document title , theme of the report
@@ -146,7 +146,7 @@ public class Library {
 	
 	public void SelectRespectiveTripType(String tripType) {
 		// TODO Auto-generated method stub
-		
+		GoibiboPOM objgoibiboPOM =new GoibiboPOM(driver);
 		if(tripType.equalsIgnoreCase("oneway")) {
 			objgoibiboPOM.TravelType_OneWay.click();
 		}else if(tripType.equalsIgnoreCase("roundtrip")) {
@@ -158,6 +158,7 @@ public class Library {
 	
 	public void SelectRespectiveFareType(String fareType) {
 		// TODO Auto-generated method stub
+		GoibiboPOM objgoibiboPOM =new GoibiboPOM(driver);
 		switch(fareType.toLowerCase()) {
 		case "regular":
 			objgoibiboPOM.FareType_Regular.click();
