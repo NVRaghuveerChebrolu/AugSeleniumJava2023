@@ -9,6 +9,7 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
@@ -20,6 +21,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -104,7 +106,14 @@ public class Library {
 		String browser = objProperties.getProperty("browser");
 		switch(browser) {
 		case "chrome":
-			driver = new ChromeDriver();
+			ChromeOptions options = new ChromeOptions();
+			Map<String,Object> ChromePreferences = new HashMap<String,Object>();
+			ChromePreferences.put("download.default_directory", System.getProperty("user.dir"));
+			//options.setExperimentalOption("excludeSwitches", "disable-popup-blocking");
+			options.addArguments("--disable-popup-blocking");
+			options.setExperimentalOption("prefs",ChromePreferences);
+			driver=new ChromeDriver(options);
+			//driver = new ChromeDriver();
 			break;
 		case "edge":
 			driver = new EdgeDriver();
