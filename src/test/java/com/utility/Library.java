@@ -242,6 +242,13 @@ public class Library {
 			}
 		}
 	}
+	
+	public void PageLoadTimeOut() {
+		//selenium 4:
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(90));
+		//selenium 3:
+		//driver.manage().timeouts().pageLoadTimeout(90,TimeUnit.SECONDS);
+	}
 
 
 }
