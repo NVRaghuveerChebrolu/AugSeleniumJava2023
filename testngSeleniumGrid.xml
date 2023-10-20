@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="4" parallel="classes" name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="com.seleniumGrid.Test3Edge"/>
+      <class name="com.seleniumGrid.Test2Firefox"/>
+      <class name="com.seleniumGrid.Test4InternetExplorer"/>
+      <class name="com.seleniumGrid.Test1Chrome"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

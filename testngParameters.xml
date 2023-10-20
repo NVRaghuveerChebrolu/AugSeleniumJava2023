@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<parameter name="Browser_Name" value="chrome"></parameter>
+	<test thread-count="5" name="Test">
+		<parameter name="Browser_Name" value="firefox"></parameter>
+		<parameter name="UserName" value="user1234"></parameter>
+		<parameter name="Passcode" value="pwd123"></parameter>
+		<parameter name="email" value="test123@gmail.com"></parameter>
+		<classes>
+			<class name="com.selenum.TestNGParameters">
+				<!-- <methods> <parameter name="UserName" value="user1234"></parameter> 
+					<parameter name="Passcode" value="pwd123"></parameter> <parameter name="email" 
+					value="test123@gmail.com"></parameter> <include name="FillLoginForm"></include> 
+					<include name="testCaseforEmail"></include> </methods> -->
+			</class>
+		</classes>
+	</test> <!-- Test -->
+	
+	<test thread-count="5" name="TestAlerts">
+		<parameter name="AlertsUrl" value="https://demoqa.com/alerts"></parameter>
+		<classes>
+			<class name="com.selenum.ValidateAlerts">
+				
+			</class>
+		</classes>
+	</test> <!-- Test -->
+	
+	
+</suite> <!-- Suite -->
