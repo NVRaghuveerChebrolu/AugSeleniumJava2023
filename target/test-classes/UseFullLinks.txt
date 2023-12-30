@@ -1,0 +1,35 @@
+Selenium 3 VS 4 : ttps://blog.testproject.io/2021/06/01/selenium-3-vs-selenium-4/
+Selenium Hierarchy : https://www.softwaretestingo.com/selenium-webdriver-interface-classes-hierarchy/
+To get master in Xpath : http://pragmatictestlabs.com/2020/01/28/mastering-xpath-for-selenium-test-automation-engineers/
+https://www.restapitutorial.com/httpstatuscodes.html
+https://www.javatpoint.com/java-tutorial
+java -jar jenkins.war --enable-future-java --httpPort=8080
+Headless : https://www.toolsqa.com/selenium-webdriver/selenium-headless-browser-testing/
+https://www.gcreddy.com/2021/02/domain-knowledge-for-software-testers.html
+https://www.selenium.dev/documentation/webdriver/getting_started/upgrade_to_selenium_4/
+https://github.com/NVRaghuveerChebrolu/CucumberAutomation.git
+
+https://jsoneditoronline.org/
+https://jsonpathfinder.com/
+https://chercher.tech/java/classes-constructors-selenium
+
+https://www.w3schools.com/sql
+https://www.hackerrank.com/
+https://reqres.in/
+https://gorest.co.in/
+
+https://www.jenkins.io/download/
+https://updates.jenkins.io/download/war/
+java -jar jenkins.war --enable-future-java --httpPort=8080
+https://www.toolsqa.com/selenium-webdriver/selenium-headless-browser-testing/
+
+https://dev.mysql.com/downloads/installer/
+
+use below to install mysql
+https://www.youtube.com/watch?v=bcrAdegPdAI&ab_channel=AbhishekChaudhary\
+https://www.youtube.com/watch?v=ftEGdHTSVbw&ab_channel=EducationAnalysist
+
+mysql>
+CREATE USER 'user123'@'localhost' IDENTIFIED BY 'password123';
+GRANT ALL PRIVILEGES ON * . * TO 'user123'@'localhost';
+FLUSH PRIVILEGES;
